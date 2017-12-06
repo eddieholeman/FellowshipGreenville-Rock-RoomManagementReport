@@ -335,7 +335,10 @@ namespace RockWeb.Plugins.com_centralaz.RoomManagement
             .ToList();
 
             //Setup the document
-            var document = new Document( PageSize.A4, 25, 25, 25, 25 );
+            var document = new Document( PageSize.A4, 25, 50, 0, 0 );
+			{
+				document.SetPageSize(iTextSharp.text.PageSize.A4.Rotate());;
+			}
 
             var output = new MemoryStream();
             var writer = PdfWriter.GetInstance( document, output );
